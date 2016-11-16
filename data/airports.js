@@ -12,7 +12,7 @@ var airportsData = [
     "airportName": "Rangiora Aerodrome",
     "latitude": -43.2878,
     "longitude": 172.5413,
-    "maxGroupRating": 8,
+    "maxGroupRating": 5,
     "permission": "Available for general use without the permission of the operator"
   }
 ]
