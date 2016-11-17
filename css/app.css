@@ -1,0 +1,18 @@
+#map {
+    height: 93vh;
+}
+
+.infoWindow {
+  box-sizing: content-box;
+}
+
+.infoWindow h1 {
+  font-size: 14pt;
+  margin-bottom: 0.5%;
+}
+
+.infoWindow h2 {
+  font-size: 12pt;
+  margin: 0.5% 2% 1% auto;
+  display: inline-block;
+}

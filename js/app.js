@@ -1,6 +1,6 @@
 $(document).foundation()
 
-var INFO_TEMPLATE = "<div class='infoWindow'><h1>%AIRPORT% (%CODE%)</h1><h3>Elevation: %ELEVATION% ft</h3><h4>Group Rating: %GROUP%</h4><p>%FORECAST%</p>";
+var INFO_TEMPLATE = "<div class='infoWindow'><h1>%AIRPORT% (%CODE%)</h1><h2>Elevation: %ELEVATION% ft</h2><h2>Group Rating: %GROUP%</h2>";
 
 function AirportsViewModel(data) {
   var self = this;
@@ -37,7 +37,7 @@ var map;
 ko.applyBindings(viewModel);
 
 function createMarkers(map){
-  infoWindow = new google.maps.InfoWindow();
+  infoWindow = new google.maps.InfoWindow({maxWidth: 250});
   google.maps.event.addListener(infoWindow,'closeclick',function(){
     viewModel.airports.forEach(function(airport){
       airport.marker.setAnimation(null);
@@ -71,22 +71,25 @@ function buildInfoWindowForAirport(airport, infoWindow) {
   infoWindow.setContent("<h1>" + airport.airportName + "</h1>");
   infoWindow.open(map, airport.marker);
   var contentString;
+  contentString = INFO_TEMPLATE.replace("%AIRPORT%", airport.airportName);
+  contentString = contentString.replace("%CODE%", airport.airportCode);
+  contentString = contentString.replace("%GROUP%", airport.maxGroupRating);
+  contentString = contentString.replace("%ELEVATION%", airport.elevation);
+  infoWindow.setContent(contentString);
   $.ajax( {
     url: endpoint,
     dataType: 'jsonp',
     type: 'GET'}).done(function(data) {
-      var forecast = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
-      contentString = INFO_TEMPLATE.replace("%AIRPORT%", airport.airportName);
-      contentString = contentString.replace("%CODE%", airport.airportCode);
-      contentString = contentString.replace("%GROUP%", airport.maxGroupRating);
-      contentString = contentString.replace("%ELEVATION%", airport.elevation);
-      if (forecast) {
-        contentString = contentString.replace("%FORECAST%", forecast);
-      } else {
-        contentString = contentString.replace("%FORECAST%", "No weather data available");
+      try {
+        var forecast = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
+        forecast += "<p><em>Forecast provided by wunderground.com</em></p>";
+      } catch (err) {
+        var forecast = "No forecast data available";
       }
+      contentString += ("<hr><p>" + forecast + "</p>");
+
     }).fail(function(){
-      contentString = contentString.replace("%FORECAST%", "This is embarassing: a networking issue prevented me from retrieving weather information");
+      contentString += "<hr><p>This is embarassing: a networking issue prevented me from retrieving weather information</p>";
     }).always(function(){
       infoWindow.setContent(contentString);
     });

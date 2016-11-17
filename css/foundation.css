@@ -2358,7 +2358,3 @@ body {
 .long-delay {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
-
-#map {
-    height: 93vh;
-}
