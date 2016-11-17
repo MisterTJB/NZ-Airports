@@ -1,7 +1,7 @@
 $(document).foundation()
 
 // Constants and globals
-var INFO_TEMPLATE = "<div class='infoWindow'><h1>%AIRPORT% (%CODE%)</h1><h2>Elevation: %ELEVATION% ft</h2><h2>Group Rating: %GROUP%</h2>";
+var INFO_TEMPLATE = "<div class='infoWindow' style='width: 250px;'><h1>%AIRPORT% (%CODE%)</h1><h2>Elevation: %ELEVATION% ft</h2><h2>Group Rating: %GROUP%</h2>";
 var ENDPOINT = "http://api.wunderground.com/api/30d55959c65fe197/forecast/q/%LAT%,%LON%.json"
 var infoWindow;
 var map;
@@ -121,7 +121,7 @@ function buildInfoWindowForAirport(airport, infoWindow) {
       // Attempt to unpack the forecast information
       try {
         var forecast = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
-        forecast += "<p><em>Forecast provided by wunderground.com</em></p>";
+        forecast += "<p><em>Forecast provided by <a href='http://www.wunderground.com'>Weather Underground</a></em></p>";
       } catch (err) {
         // If the request is successful, but there is no forecast information,
         // echo this to the user
@@ -139,7 +139,7 @@ function buildInfoWindowForAirport(airport, infoWindow) {
 // Initialise tha main map, centered on New Zealand
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 6,
+    zoom:5,
     center: {lat: -40.9006, lng: 174.8860},
     mapTypeControl: false,
     streetViewControl: false
