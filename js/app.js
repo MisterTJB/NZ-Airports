@@ -33,6 +33,7 @@ function AirportsViewModel(data) {
 
 var viewModel = new AirportsViewModel(airportsData);
 var infoWindow;
+var map;
 ko.applyBindings(viewModel);
 
 function createMarkers(map){
@@ -49,6 +50,7 @@ function createMarkers(map){
     });
     google.maps.event.addListener(marker, 'click', function () {
       buildInfoWindowForAirport(airport, infoWindow);
+      map.setCenter({lat: airport.latitude, lng: airport.longitude});
       viewModel.airports.forEach(function(airport){
         airport.marker.setAnimation(null);
       });
@@ -91,7 +93,7 @@ function buildInfoWindowForAirport(airport, infoWindow) {
 }
 
 function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
+  map = new google.maps.Map(document.getElementById('map'), {
     zoom: 6,
     center: {lat: -40.9006, lng: 174.8860}
   });
