@@ -4,6 +4,7 @@ var airportsData = [
     "airportName": "Christchurch",
     "latitude": -43.486400,
     "longitude": 172.536900,
+    "elevation": 123,
     "maxGroupRating": 8,
     "permission": "–"
   },
@@ -12,6 +13,7 @@ var airportsData = [
     "airportName": "Rangiora",
     "latitude": -43.2878,
     "longitude": 172.5413,
+    "elevation": 180,
     "maxGroupRating": 8,
     "permission": "Available for general use without the permission of the operator"
   },
