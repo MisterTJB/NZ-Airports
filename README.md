@@ -4,6 +4,9 @@
 NZ Airports is a web application that allows users to filter local airports by _group rating_ – a specification for runways and aeroplanes that indicates whether a particular model of plane can safely operate on a given runway – and then 'browse' suitable airports to discover airports having favourable weather conditions.
 
 ## Usage
+The app can be downloaded and run locally, or via [GitHub Pages](https://mistertjb.github.io/NZ-Airports/).
+
+
 The typical pattern for using the application is as follows:
 
 1. Open the off-canvas menu to the left of the screen
