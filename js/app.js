@@ -140,7 +140,9 @@ function buildInfoWindowForAirport(airport, infoWindow) {
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 6,
-    center: {lat: -40.9006, lng: 174.8860}
+    center: {lat: -40.9006, lng: 174.8860},
+    mapTypeControl: false,
+    streetViewControl: false
   });
   createMarkers(map);
 }
