@@ -2360,6 +2360,5 @@ body {
           animation-delay: 700ms !important; }
 
 #map {
-    /*width: 100%;*/
     height: 93vh;
 }
