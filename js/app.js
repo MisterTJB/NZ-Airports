@@ -119,15 +119,21 @@ function buildInfoWindowForAirport(airport, infoWindow) {
     }).done(function(data) {
 
       // Attempt to unpack the forecast information
+      var forecast;
       try {
-        var forecast = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
-        forecast += "<p><em>Forecast provided by <a href='http://www.wunderground.com'>Weather Underground</a></em></p>";
+        forecast = data.forecast.txt_forecast.forecastday[0].fcttext_metric;
+
+        // If an empty forecast is returned, echo this to the user
+        if (forecast.length === 0){
+          forecast = "No forecast data available";
+        }
       } catch (err) {
         // If the request is successful, but there is no forecast information,
         // echo this to the user
-        var forecast = "No forecast data available";
+        forecast = "No forecast data available";
       }
-      contentString += ("<hr><p>" + forecast + "</p>");
+      contentString += "<hr><p>" + forecast + "</p>";
+      contentString += "<p><em>Forecast provided by <a href='http://www.wunderground.com'>Weather Underground</a></em></p>";
 
     }).fail(function(){
       contentString += "<hr><p>This is embarassing: a networking issue prevented me from retrieving weather information</p>";
