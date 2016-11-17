@@ -20,7 +20,7 @@
 
           </ul>
           <ul class="menu vertical" data-bind="foreach: filteredAirports">
-            <li data-bind="click: $parent.calloutMarker"><!--ko text: airportCode--><!--/ko--> – <!--ko text: airportName--><!--/ko--> </li>
+            <li onclick="$('.off-canvas').foundation('close');"data-bind="click: $parent.calloutMarker"><!--ko text: airportCode--><!--/ko--> – <!--ko text: airportName--><!--/ko--> </li>
           </ul>
         </div>
 
