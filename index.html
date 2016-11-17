@@ -15,8 +15,9 @@
 
           <!-- List -->
           <ul class="menu vertical">
+            <p>Min. Group Rating: <!--ko text: groupRating--><!--/ko--></p>
             <input type="range" min="1" max="8" step="1" data-bind="value: groupRating, valueUpdate: 'input'">
-            <p data-bind="text: groupRating"></p>
+
 
           </ul>
           <ul class="menu vertical" data-bind="foreach: filteredAirports">
