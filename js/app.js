@@ -1,8 +1,8 @@
-$(document).foundation()
+$(document).foundation();
 
 // Constants and globals
 var INFO_TEMPLATE = "<div class='infoWindow' style='width: 250px;'><h1>%AIRPORT% (%CODE%)</h1><h2>Elevation: %ELEVATION% ft</h2><h2>Group Rating: %GROUP%</h2>";
-var ENDPOINT = "https://api.wunderground.com/api/30d55959c65fe197/forecast/q/%LAT%,%LON%.json"
+var ENDPOINT = "https://api.wunderground.com/api/30d55959c65fe197/forecast/q/%LAT%,%LON%.json";
 var infoWindow;
 var map;
 
