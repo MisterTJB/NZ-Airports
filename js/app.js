@@ -152,3 +152,9 @@ function initMap() {
   });
   createMarkers(map);
 }
+
+function mapLoadError() {
+  var errorText = '<div class="row" style="margin-top: 15%;"><div class="small-12 small-centered column"><h3 class="text-center">Looks like there was a problem loading Google Maps &#x1f648;</h3><p>You might like to check your network settings and refresh your browser</div></div>';
+  $("#map").append(errorText);
+  //alert("Oh no, there was a problem loading the map! You might like to check your network and try again.");
+}
