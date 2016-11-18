@@ -34,6 +34,12 @@ _Filtered by the most restrictive group rating_
 
 ![Infobox with weather](screenshots/infobox_rendered.png)
 _The infobox shows basic airport and forecast information_
+
+![Error loading Google Maps](screenshots/google_map_error.png)
+_Network problems can cause Google Maps to fail to load_ 😔
+
+![Error loading Wunderground](screenshots/wunderground_error.png)
+_Likewise, AJAX calls to the Wunderground API can fail_
 ## Attribution
 
 Forecast information is sourced from wunderground.com
