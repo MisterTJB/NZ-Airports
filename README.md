@@ -3,9 +3,21 @@
 ## Overview
 NZ Airports is a web application that allows users to filter local airports by _group rating_ – a specification for runways and aeroplanes that indicates whether a particular model of plane can safely operate on a given runway – and then 'browse' suitable airports to discover airports having favourable weather conditions.
 
-## Usage
-The app can be downloaded and run locally, or via [GitHub Pages](https://mistertjb.github.io/NZ-Airports/).
+## Starting the App
 
+### Local
+The app can be downloaded and run locally. The simplest way to do this is to download the project as a zip file from GitHub.
+
+![Download from Github](screenshots/download_from_github.png)
+_Downloading from GitHub_
+
+Once the project is downloaded, navigate to the project folder and open `index.html`; this should launch the application in your web browser.
+
+### GitHub Pages
+
+The application is hosted on GitHub Pages. Just follow [this link](https://mistertjb.github.io/NZ-Airports/) to the application.
+
+## Using the App
 
 The typical pattern for using the application is as follows:
 
